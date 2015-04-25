@@ -70,12 +70,16 @@ function gatherFeatureFiles(filepath)
     return files
 end
 
+local function safeLoad(filename)
+    return assert(loadfile(filename), "Failed to load " .. filename .. " as a lua chunk")
+end
+
 function loadFeatures(featuresFolderFilePath)
     local files = gatherFeatureFiles(featuresFolderFilePath)
     for _, filename in ipairs(files) do
         if DISPLAY_LOADED_FILES then print(filename) end
-        local chunk = assert(loadfile(filename), "Failed to load " .. filename .. " as a lua chunk")
-        chunk()
+        local loadOK, chunk = pcall(safeLoad, filename)
+        if loadOK then pcall(chunk) end
     end
 end
 
