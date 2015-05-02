@@ -32,10 +32,6 @@ public class FeatureLoader {
 		callFunction("displayLoadedFiles");
 	}
 	
-	public Object getGlobalUserObject(String name) {
-		return globals.get(name).touserdata();
-	}
-	
 	private void callFunction(String functionname) {
 		LuaValue function = globals.get(functionname);
 		function.call();
@@ -49,6 +45,10 @@ public class FeatureLoader {
 	private void loadLuaFeatureLoaderFunctionsToGlobalFunctions() {
 		LuaValue chunk = globals.loadfile(featureLoaderEngineScriptFile);
 		chunk.call();
+	}
+	
+	private Object getGlobalUserObject(String name) {
+		return globals.get(name).touserdata();
 	}
 	
 }
