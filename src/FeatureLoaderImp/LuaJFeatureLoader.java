@@ -59,7 +59,6 @@ public class LuaJFeatureLoader extends FeatureLoader {
 				String[] orderingList = new String[result.length()];
 				for (int i = 0; i < result.length(); i++) {
 					orderingList[i] = result.get(i + 1).toString();
-					System.out.println(orderingList[i]);
 				}
 				return orderingList;
 			}
