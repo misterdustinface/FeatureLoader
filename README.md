@@ -7,4 +7,4 @@ If you integrate this engine with your application, the application will only ha
   1. Directory where the features are.
   2. Dependency on this engine.
   
-- [LuaJ](LuaJFeatureLoader.md)
+- [LuaJ Feature Loader](LuaJFeatureLoader.md)
