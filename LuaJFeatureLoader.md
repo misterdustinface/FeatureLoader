@@ -10,7 +10,9 @@
   - Can refer to a file or a directory
 
 ### Integration
-  - In java, create an instance of LuaJFeatureLoader
+
+#### In Java
+  - Create an instance of LuaJFeatureLoader
   - Call setApplication on the instance, passing your application as an argument
   - Then call loadFeatures on the instance, passing a file path (string) as an argument
 
@@ -25,3 +27,7 @@
 ```
 
   - loadFeatures can take a directory (string) as the file path; hence, the "features" directory was used.
+
+#### In Lua
+  - Create your features as lua scripts
+  - These scripts can access a global 'APPLICATION'
