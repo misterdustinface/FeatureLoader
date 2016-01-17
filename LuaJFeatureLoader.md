@@ -31,3 +31,25 @@
 #### In Lua
   - Create your features as lua scripts
   - These scripts can access a global 'APPLICATION'
+
+```Lua
+  local game = APPLICATION
+  local GUI = game.GUI
+  
+  local loginButton = {
+  	id = 'loginButton',
+  	rectangle = { x = 50, y = 50, width = 100, height = 20, },
+  	text = "Click Here to Log In",
+  	style = GUI:style("graceful"),
+  	onclick = function() 
+  		local username = GUI:prompt("username")
+  		local password = GUI:prompt("password")
+  		game:login(username, password)
+  	end,
+  	onhover = function()
+  		self.style = GUI:style("demonic")
+  	end,
+  }
+  
+  GUI:addElement('button', loginButton)
+```
